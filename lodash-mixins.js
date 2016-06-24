@@ -76,8 +76,8 @@ function objectDiff(obj, origObj) {
 
 /**
  * Compact object by removing all empty objects
- * var o = { 'Borrower': 'Test', 'Apps': [{}, {'id':1, 'name': 'test' }, {}, {'id': 3, 'name': 'test3'}], 'Prop': {}, 'Rate': 10, 'Pblank': [{ Cblank:[{},{}] }] }
- * Returns -> // { 'Borrower': 'Test', 'Apps': [{'id':1, 'name': 'test' }, {'id': 3, 'name': 'test3'}], 'Rate': 10, 'Pblank':[{}] }
+ * var o = { 'MyProp': 'Test', 'Apps': [{}, {'id':1, 'name': 'test' }, {}, {'id': 3, 'name': 'test3'}], 'Prop': {}, 'Rate': 10, 'Pblank': [{ Cblank:[{},{}] }] }
+ * Returns -> // { 'MyProp': 'Test', 'Apps': [{'id':1, 'name': 'test' }, {'id': 3, 'name': 'test3'}], 'Rate': 10, 'Pblank':[{}] }
  */
 function compactObject(o) {
   forEach(o, (v, k) => {
@@ -101,8 +101,8 @@ function compactObject(o) {
 
 /**
  * Compact object by removing all empty objects (same as above), but reiterate until all empty objects and arrays are removed
- * var o = { 'Borrower': 'Test', 'Apps': [{}, {'id':1, 'name': 'test' }, {}, {'id': 3, 'name': 'test3'}], 'Prop': {}, 'Rate': 10, 'Pblank': [{ Cblank:[{},{}] }] }
- * Returns -> // { 'Borrower': 'Test', 'Apps': [{'id':1, 'name': 'test' }, {'id': 3, 'name': 'test3'}], 'Rate': 10 }
+ * var o = { 'MyProp': 'Test', 'Apps': [{}, {'id':1, 'name': 'test' }, {}, {'id': 3, 'name': 'test3'}], 'Prop': {}, 'Rate': 10, 'Pblank': [{ Cblank:[{},{}] }] }
+ * Returns -> // { 'MyProp': 'Test', 'Apps': [{'id':1, 'name': 'test' }, {'id': 3, 'name': 'test3'}], 'Rate': 10 }
  * invoke -> compactObjectDeep(o, o); 
  */
 var re = false;
