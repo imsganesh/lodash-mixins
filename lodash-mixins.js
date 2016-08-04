@@ -116,16 +116,16 @@ function compactObjectDeep(o, orig) {
         o[k] = _.filter(v, function(item){
           return !_.isEmpty(item);
         });        
-        o[k].length < 1 ? (re = true && delete o[k]) : compact(o[k], orig);
+        o[k].length < 1 ? (re = true && delete o[k]) : compactObjectDeep(o[k], orig);
       }
     }
     else if (_.isObject(v)) {
-      _.isEmpty(v) ? (re = true && delete o[k]) : compact(v, orig);
+      _.isEmpty(v) ? (re = true && delete o[k]) : compactObjectDeep(v, orig);
     }
   });
   if(re){
     re = false;
-    compact(orig, orig);
+    compactObjectDeep(orig, orig);
   }  
   return o;
 }
